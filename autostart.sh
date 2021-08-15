@@ -8,4 +8,4 @@ fcitx5 &
 xfce4-power-manager &
 
 /bin/bash ~/scripts/wp-autochange.sh &
-
+/bin/bash ~/scripts/dwm-refresh-status.sh &
