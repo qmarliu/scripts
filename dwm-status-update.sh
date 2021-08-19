@@ -41,5 +41,3 @@ print_date(){
 }
 
 xsetroot -name "$(print_volume) [⚡$(print_bat)] $(print_date)"
-
-exit 0
