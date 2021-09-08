@@ -9,3 +9,6 @@ xfce4-power-manager &
 
 /bin/bash ~/scripts/wp-autochange.sh &
 /bin/bash ~/scripts/dwm-refresh-status.sh &
+
+/bin/bash ~/scripts/tap-to-click.sh
+/bin/bash ~/scripts/inverse-scroll.sh
