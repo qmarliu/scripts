@@ -40,4 +40,4 @@ print_date(){
 	date '+%m月%d日 %H:%M %a 第%j天'
 }
 
-xsetroot -name "                                                                           $(print_date)"
+xsetroot -name "$(print_date)"

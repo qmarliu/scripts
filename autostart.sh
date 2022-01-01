@@ -1,6 +1,5 @@
 #!/bin/bash
 
-feh --bg-scale ~/Pictrue/background/5.jpg
 #xsetroot -name qmarliu
 picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
 fcitx5 &
