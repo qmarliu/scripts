@@ -9,7 +9,8 @@
 # This function should be called each second.
 
 print_volume() {
-	volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
+	# volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
+	volume="$(pactl get-sink-volume 0 | head -n1 | sed -r 's/.* (.*)% .*/\1/')"
 	if test "$volume" -gt 0
 	then
 		echo -e "Vol ${volume}"
@@ -40,4 +41,4 @@ print_date(){
 	date '+%m月%d日 %H:%M %a 第%j天'
 }
 
-xsetroot -name "$(print_date)"
+xsetroot -name "$(print_volume) $(print_date)"
