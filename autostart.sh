@@ -11,5 +11,7 @@ fcitx5 &
 /bin/bash ~/scripts/wp-autochange.sh &
 /bin/bash ~/scripts/dwm-refresh-status.sh &
 
+nohup clash > ~/.config/clash/log.txt 2>&1 &
+
 # /bin/bash ~/scripts/tap-to-click.sh
 # /bin/bash ~/scripts/inverse-scroll.sh
