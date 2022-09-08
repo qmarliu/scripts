@@ -26,4 +26,10 @@ case $1 in
     open_last_screenshot) eog ~/Pictures/screenshots/$(ls -t ~/Pictures/screenshots | sed '2,9999d') >> /dev/null 2>&1 & ;;
     set_vol) set_vol $2 ;;
     change_wallpaper) ~/scripts/wp-change.sh ;;
+    wechat) /opt/apps/com.qq.weixin.deepin/files/run.sh ;;
+    qq) /opt/apps/com.qq.office.deepin/files/run.sh ;;
+    music) netease-cloud-music ;;
+    dingtalk) dingtalk ;;
+    dbeaver) dbeaver ;;
+    keepassxc) keepassxc ;;
 esac
