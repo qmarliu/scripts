@@ -37,8 +37,8 @@ print_bat(){
 }
 
 print_date(){
-	# date '+%Y年%m月%d日 %H:%M'
-	date '+%m月%d日 %H:%M %a 第%j天'
+	# date '+%m月%d日 %H:%M %a 第%j天'
+	date '+%m/%d %H:%M %a'
 }
 
-xsetroot -name "$(print_volume) $(print_date)"
+xsetroot -name "$(print_volume)$(print_date)"

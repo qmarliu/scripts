@@ -13,6 +13,7 @@ set_vol() {
 }
 
 case $1 in
+    killw) kill -9 $(xprop | grep "_NET_WM_PID(CARDINAL)" | awk '{print $3}') ;;
     filemanager) thunar ;;
     alacritty) alacritty ;;
     st) st ;;
@@ -32,4 +33,5 @@ case $1 in
     dingtalk) dingtalk ;;
     dbeaver) dbeaver ;;
     keepassxc) keepassxc ;;
+    picom) picom --experimental-backends --config ~/scripts/config/picom.conf >> /dev/null 2>&1 & ;;
 esac
