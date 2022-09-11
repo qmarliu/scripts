@@ -1,2 +1,2 @@
 #!/bin/bash
-feh --recursive --randomize --bg-fill ~/Nutstore\ Files/Nutstore/background/view
+feh --recursive --randomize --bg-fill ~/Nutstore\ Files/background/view
