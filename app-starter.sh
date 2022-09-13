@@ -12,6 +12,11 @@ set_vol() {
     ~/scripts/dwm-status-update.sh
 }
 
+# 检查是否已经启动，如果启动就不启动了。
+start_single_app() {
+  if [ $(ps -ef | grep $1 | grep -vc grep) -eq 0 ]; then $2
+  fi
+}
 case $1 in
     killw) kill -9 $(xprop | grep "_NET_WM_PID(CARDINAL)" | awk '{print $3}') ;;
     filemanager) thunar ;;
@@ -27,8 +32,10 @@ case $1 in
     open_last_screenshot) eog ~/Pictures/screenshots/$(ls -t ~/Pictures/screenshots | sed '2,9999d') >> /dev/null 2>&1 & ;;
     set_vol) set_vol $2 ;;
     change_wallpaper) ~/scripts/wp-change.sh ;;
-    wechat) /opt/apps/com.qq.weixin.deepin/files/run.sh ;;
-    qq) /opt/apps/com.qq.office.deepin/files/run.sh ;;
+    # wechat) /opt/apps/com.qq.weixin.deepin/files/run.sh ;;
+    wechat) start_single_app WeChat.exe /opt/apps/com.qq.weixin.deepin/files/run.sh ;;
+    # qq) /opt/apps/com.qq.office.deepin/files/run.sh ;;
+    qq) start_single_app TIM.exe /opt/apps/com.qq.office.deepin/files/run.sh ;;
     music) netease-cloud-music ;;
     dingtalk) dingtalk ;;
     dbeaver) dbeaver ;;
