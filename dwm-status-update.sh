@@ -13,7 +13,7 @@ print_volume() {
 	volume="$(pactl get-sink-volume 0 | head -n1 | sed -r 's/.* (.*)% .*/\1/')"
   if [ "$volume" -eq 0 ];
   then echo -e "ﱝ";
-  else echo -e " ${volume}";
+  else echo -e "🔈 ${volume}";
 	fi
 }
 
@@ -33,11 +33,11 @@ print_bat() {
   elif [ "$bat_text" -ge 10 ]; then bat_icon="";
   else bat_icon=""; fi
 
-  if [[ -z $VAR ]]; then
-    echo "$charge_icon"
+  if [[ -z $bat_text ]]; then
     return
+  fi
   bat_icon=$charge_icon$bat_icon
-  echo "$bat_icon $bat_text%"
+  echo "$bat_icon $bat_text%"
 }
 
 print_mem() {
@@ -71,4 +71,4 @@ print_time() {
   echo "$time_icon $time_text"
 }
 
-xsetroot -name "$(print_bat)$(print_mem)$(print_volume)$(print_time)"
+xsetroot -name "$(print_bat)$(print_mem)$(print_volume)$(print_time)"
