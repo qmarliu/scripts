@@ -13,7 +13,7 @@ print_volume() {
 	volume="$(pactl get-sink-volume 0 | head -n1 | sed -r 's/.* (.*)% .*/\1/')"
   if [ "$volume" -eq 0 ];
   then echo -e "ﱝ";
-  else echo -e "🔈 ${volume}";
+  else echo -e " ${volume}";
 	fi
 }
 
