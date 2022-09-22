@@ -1,6 +1,6 @@
 #!/bin/bash
 
-clash > ~/.config/clash/log.txt 2>&1 &
+clash -f ~/.config/clash/config_aliyun.yaml > ~/.config/clash/log.txt 2>&1 &
 ~/scripts/app-starter.sh picom
 fcitx5 &
 /bin/bash ~/scripts/wp-autochange.sh &
