@@ -6,9 +6,10 @@
 
 # !!! 确保所有item没有重复的 !!!
 main_menu_item[1]="set wallpaper"        ; main_cmd[1]='~/scripts/wp-change.sh; main_menu'
-main_menu_item[2]="picom"                ; main_cmd[4]='killall picom || ~/scripts/app-starter.sh picom'
-main_menu_item[3]="open last screenshot" ; main_cmd[4]='~/scripts/app-starter.sh open_last_screenshot'
-main_menu_item[4]="bluetooth"            ; main_cmd[3]='bluetooth_menu'
+main_menu_item[2]="wifi"                 ; main_cmd[2]='rofi-wifi-menu'
+main_menu_item[3]="picom"                ; main_cmd[3]='killall picom || ~/scripts/app-starter.sh picom'
+main_menu_item[4]="open last screenshot" ; main_cmd[4]='~/scripts/app-starter.sh open_last_screenshot'
+main_menu_item[5]="bluetooth"            ; main_cmd[5]='bluetooth_menu'
 
 bluetooth_menu_item[1]="connect airpod" ; bluetooth_cmd[1]='~/scripts/bluetooth.sh h1 >> /dev/null &'
 

@@ -28,9 +28,10 @@ case $1 in
     filemanager) thunar ;;
     alacritty) alacritty ;;
     st) st ;;
-    rofi) rofi -show run ;;
+    rofi_run) rofi -show run ;;
     rofi_window) rofi -show window -show-icons ;;
     rofi_drun) rofi -show drun -show-icons ;;
+    rofi_menu) rofi -show menu -modi "menu:~/scripts/rofi.sh"  ;;
     keepass) keepass;;
     xlock) xlock -mode puzzle;;
     chrome) google-chrome-stable --proxy-server=socks5://localhost:1081 ;;
