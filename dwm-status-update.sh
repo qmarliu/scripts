@@ -1,20 +1,34 @@
 #!/bin/bash
-# Screenshot: http://s.natalian.org/2013-08-17/dwm_status.png
-# Network speed stuff stolen from http://linuxclues.blogspot.sg/2009/11/shell-script-show-network-speed.html
 
-# This function parses /proc/net/dev file searching for a line containing $interface data.
+s2d_reset="^d^"
+s2d_fg="^c"
+s2d_bg="^b"
 
-# Function which calculates the speed using actual and old byte number.
-# Speed is shown in KByte per second when greater or equal than 1 KByte per second.
-# This function should be called each second.
+# https://tool.oschina.net/commons?type=3 选颜色
+DarkSlateGray="#2F4F4F^"
+Black="#000000^"
+LightCyan4="#7A8B8B^"
+Moccasin="#FFE4B5^"
+RosyBrown1="#FFC1C1^"
+Orchid1="#FF83FA^"
+SteelBlue1="#63B8FF^"
+
+  bat_color="$s2d_fg$LightCyan4$s2d_bg$Black"
+  mem_color="$s2d_fg$SteelBlue1$s2d_bg$Black"
+  vol_color="$s2d_fg$RosyBrown1$s2d_bg$Black"
+ time_color="$s2d_fg$Orchid1$s2d_bg$Black"
+
 
 print_volume() {
 	volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
 	# volume="$(pactl get-sink-volume 0 | head -n1 | sed -r 's/.* (.*)% .*/\1/')"
   if [ "$volume" -eq 0 ];
-  then echo -e "ﱝ";
-  else echo -e " ${volume}";
+  then vol_icon="ﱝ ";
+  else vol_icon=" ";
 	fi
+  text=" $vol_icon$volume "
+  color=$vol_color
+  printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
 print_bat() {
@@ -37,7 +51,9 @@ print_bat() {
     return
   fi
   bat_icon=$charge_icon$bat_icon
-  echo "$bat_icon $bat_text%"
+  text=" $bat_icon $bat_text "
+  color=$bat_color
+  printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
 print_mem() {
@@ -48,7 +64,9 @@ print_mem() {
   men_usage_rate=$(((mem_total - mem_free - mem_buffers - mem_cached) * 100 / mem_total))
   mem_icon=""
   mem_text=$(echo $men_usage_rate | awk '{printf "%02d%", $1}')
-  echo "$mem_icon $mem_text"
+  text=" $mem_icon $mem_text "
+  color=$mem_color
+  printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
 print_time() {
@@ -68,7 +86,10 @@ print_time() {
     "12") time_icon="" ;;
   esac
 
-  echo "$time_icon $time_text"
+  text=" $time_icon $time_text "
+  color=$time_color
+  printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
-xsetroot -name "$(print_bat)$(print_mem)$(print_volume)$(print_time)"
+# xsetroot -name "$(print_bat)$(print_mem)$(print_volume)$(print_time)"
+xsetroot -name "$(print_bat)$(print_mem)$(print_volume)$(print_time)"

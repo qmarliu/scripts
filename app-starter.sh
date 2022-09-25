@@ -5,12 +5,13 @@ set_vol() {
     # case $1 in
     #     up) pactl set-sink-volume 0 +5% ;;
     #     down) pactl set-sink-volume 0 -5% ;;
-    volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
     case $1 in
         up) amixer -D pulse sset Master 5%+
+            volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
             notify-send " 🔉   音量升高 ${volume}" -t 2000
           ;;
         down) amixer -D pulse sset Master 5%-
+            volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
             notify-send " 🔉   音量降低 ${volume}" -t 2000
           ;;
     esac
