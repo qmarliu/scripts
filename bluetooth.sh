@@ -1,10 +1,11 @@
 #! /bin/bash
 # 蓝牙连接脚本
 
-AirPods=A3:D3:B4:53:A3:E2
+AirPods=54:2B:8D:49:CC:7C
 
 ls() {
     echo h1  bluetoothctl connect AirPods
+    echo dh1  bluetoothctl disconnect AirPods
 }
 blconnect() {
     bluetoothctl connect $1
@@ -18,5 +19,6 @@ bldisconnect() {
 }
 case $1 in
     h1)   blconnect $AirPods;;
+    dh1)  bldisconnect $AirPods;;
     *)    ls ;;
 esac

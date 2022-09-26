@@ -12,6 +12,7 @@ main_menu_item[4]="open last screenshot" ; main_cmd[4]='~/scripts/app-starter.sh
 main_menu_item[5]="bluetooth"            ; main_cmd[5]='bluetooth_menu'
 
 bluetooth_menu_item[1]="connect airpod" ; bluetooth_cmd[1]='~/scripts/bluetooth.sh h1 >> /dev/null &'
+bluetooth_menu_item[2]="disconnect airpod" ; bluetooth_cmd[2]='~/scripts/bluetooth.sh dh1 >> /dev/null &'
 
 main_menu() {
     echo -e "\0prompt\x1fmenu"
