@@ -28,6 +28,9 @@ print_volume() {
 	fi
   text=" $vol_icon$volume "
   color=$vol_color
+  if [ "$(bluetoothctl devices Connected | wc -l)" -gt 0 ];
+  then text=" 🎧$text";
+  fi
   printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
@@ -91,5 +94,5 @@ print_time() {
   printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
-# xsetroot -name "$(print_bat)$(print_mem)$(print_volume)$(print_time)"
-xsetroot -name "$(print_bat)$(print_mem)$(print_volume)$(print_time)"
+# xsetroot -name "$(print_bat)$(print_mem)$(print_volume)$(print_time)"
+xsetroot -name "$(print_bat)$(print_volume)$(print_time)"
