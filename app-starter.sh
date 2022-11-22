@@ -51,5 +51,5 @@ case $1 in
     dingtalk) dingtalk ;;
     dbeaver) dbeaver ;;
     keepassxc) keepassxc ;;
-    picom) picom --experimental-backends --config ~/scripts/config/picom.conf >> /dev/null 2>&1 & ;;
+    picom) picom --config ~/scripts/config/picom.conf >> /dev/null 2>&1 & ;;
 esac
