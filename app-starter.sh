@@ -46,7 +46,7 @@ case $1 in
     # wechat) /opt/apps/com.qq.weixin.deepin/files/run.sh ;;
     wechat) start_single_app WeChat.exe /opt/apps/com.qq.weixin.deepin/files/run.sh ;;
     # qq) /opt/apps/com.qq.office.deepin/files/run.sh ;;
-    qq) start_single_app TIM.exe /opt/apps/com.qq.office.deepin/files/run.sh ;;
+    qq) linuxqq ;;
     music) netease-cloud-music ;;
     dingtalk) dingtalk ;;
     dbeaver) dbeaver ;;
